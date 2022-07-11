@@ -1,0 +1,8 @@
+FROM python:latest 
+
+ADD server.py /server.py
+
+EXPOSE 12341
+
+ENTRYPOINT ["python3", "server.py"]
+

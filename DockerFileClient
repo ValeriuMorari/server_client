@@ -1,0 +1,6 @@
+FROM python:latest 
+
+ADD client.py /client.py
+
+ENTRYPOINT ["python3", "client.py"]
+

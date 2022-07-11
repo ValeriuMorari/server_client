@@ -1,0 +1,24 @@
+services:
+  server:
+    image: server
+    container_name: server
+    build:
+      context: .
+      dockerfile: DockerFile
+    expose:
+      - 12341
+    networks:
+      - my_network 
+  client:
+    image: client
+    build:
+      context: .
+      dockerfile: DockerFileClient
+    depends_on:
+      - server
+    networks:
+      - my_network
+networks:
+  my_network:
+    name: my_network
+    external: true
