@@ -1,8 +1,8 @@
 import socket
 import time 
 
-HOST = socket.gethostbyname('server')
-# HOST = 'localhost'
+# HOST = socket.gethostbyname('server')
+HOST = 'localhost'
 PORT = 12341
 
 
