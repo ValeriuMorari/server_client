@@ -8,6 +8,7 @@ PORT = 12341
 
 print("Starting up...")
 # t1 = time.perf_counter()
+count = 0
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.bind((HOST, PORT))
     while True:
@@ -29,4 +30,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 if not data:
                     break
                 print(data.decode())
-                conn.send("received".encode())
+                if count == 0:
+                    conn.send("0".encode())
+                    count += 1
+                elif count == 1:
+                    conn.send("1".encode())
+                    count += 1
+                elif count == 2:
+                    conn.send("-99".encode())
+                    count = 0
+
