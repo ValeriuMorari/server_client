@@ -1,5 +1,6 @@
 import socket
 import time 
+import uuid
 
 # HOST = socket.gethostbyname('server')
 HOST = 'localhost'
@@ -30,13 +31,4 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 if not data:
                     break
                 print(data.decode())
-                if count == 0:
-                    conn.send("0".encode())
-                    count += 1
-                elif count == 1:
-                    conn.send("1".encode())
-                    count += 1
-                elif count == 2:
-                    conn.send("-99".encode())
-                    count = 0
-
+                conn.send(str(uuid.uuid4()).encode())
