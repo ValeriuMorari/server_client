@@ -30,5 +30,6 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                     break
                 if not data:
                     break
-                print(data.decode())
-                conn.send(str(uuid.uuid4()).encode())
+                print(f"Received from client: '{data.decode()}'")
+                print(f"Send to client: 'raspuns - {str(uuid.uuid4())}'")
+                conn.send(f"raspuns - {str(uuid.uuid4())}".encode())
